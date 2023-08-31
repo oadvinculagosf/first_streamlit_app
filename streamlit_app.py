@@ -1,4 +1,5 @@
 import pandas
+import requests
 import streamlit
 
 # Initialize Fruit List (Read from S3 Bucket)
@@ -24,4 +25,9 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 # Display the table on the page
 streamlit.dataframe(fruits_to_show)
 
+# New Section to display Fruityvice API Response
+streamlit.header('Fruityvice Fruit Advice!')
 
+# Make request
+fruityvice_response = requests.get('https://fruityvice.com/api/fruit/watermelon')
+streamlit.text(fruityvice_response.json())
