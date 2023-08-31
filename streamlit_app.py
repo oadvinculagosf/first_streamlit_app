@@ -1,5 +1,6 @@
 import pandas
 import requests
+import snowflake.connector
 import streamlit
 
 # Initialize Fruit List (Read from S3 Bucket)
